@@ -1,0 +1,4 @@
+l1 : formation de niveau 1 sur ivalua (plateforme utiliser au sains de l'entreprise)
+l2 : "de niveau 2
+ticket : demande effectuer par le client (pour une commande ou un besoin de maintenance) répertorier sur la platform pour travailler dessus
+workflow : ligne de vie d'un contrat ou d'une demande qui sert a voir leur avancer(avec un status précis pour chaque stade) et a faire valider des étapes par des personne en particulier

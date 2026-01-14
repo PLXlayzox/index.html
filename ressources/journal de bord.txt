@@ -1,0 +1,34 @@
+	s1:
+  J1 : de 9h a 9h30 on m'a présenter l entreprise, ensuite on a commencer une initiation(l1) au logicielle de l entreprise de 9h30 a 12h et de 14H a 18h je commence un cours sur le SQL.
+  J2 : de 9h a 12h ainsi que de 14h a 18h j'ai continuer la formation sur l'utilisation du logicielle utiliser par l'entreprise.
+  J3 : de 9h a 10h j'ai continuer a m'exercer sur le SQL ensuit de 10h a 12h j'ai commencer une autre formation sur l'entreprise, de 14h a 17h j'ai fini la deuxième formation sur l'entreprise et de 17ha 18h j'ai continuer a m'exercer sur les SQL
+  J4 : de 9h a 12h j'ai continuer a m'exercer sur le SQL, de 14h a 18h on a repris les exercices et les points que je ne comprenais pas afin que je comprenne mieux la logique du SQL et avancer sur des exercices plus complexes.
+  J5 : de 9h a 9h30 j'ai continuer a avancer sur les exercices ensuite de 9h30 a 11h30 j'ai eu un call avec mon maitre de stage en télétravail pour géré mon premier ticket n1 dans une sandbox ou j'ai terminer la requête SQL (il manque la mise en œuvre de la solution), de 11h30 a 12h j'ai commencer a travailler sur un autre aspect du ticket n1. de 14h a 15h30 on a terminer la requête du ticket de 15h30 a 16h30 j'ai examiner une requête plus complexe
+	s2:
+  J1 : de 9h a 9h30 j'ai continuer a m'entrainer sur le SQL ensuite de 9h30 a 12h puis de 14h a 18h j'ai travailler sur le ticket n2 (la requête complexe étudier en fin de journée le J5 de la s1).
+  J2 : de 9h a 12h et de 12h a 14h toujours sur le ticket n2, de 14h a 18h j'ai commencer a faire des exercices plus complexes sur le SQL
+  J3 : de 9h a 11h j'ai continuer mes exercices puis de 11h a 12h l'entreprise a eu une formation sur la sécurité au travail puis de 14h a 18h j'ai continuer a m'exercer sur le SQL
+  s3:
+  J1 : de 14h a 18h j'ai commencer a analyser comment résoudre le 1er ticket
+  J2 : de 9h a 12h et de 14h a 16h j'ai presque résolue le 1er ticket puis de 16h a 18h j'ai avancer sur mon rapport de stage 
+  J3 : de 9h a 12h j'ai chercher comment résoudre e ticket n1  que j'ai terminer de 14h a 18h
+  J4 : de 9h a 12h j'ai avancer su mon rapport de stage, ensuite de 14h a 18h j'était avec mon maître de stage afin de m'expliquer un autre type de tache assez récurrente
+  J5 : de 9h a 12h j'ai commencer mon second ticket ainsi que de 14h a 18h puis lorsque j'était bloquer j'ai avancer sur mon rapport
+  s4:
+  J1 : de 9h a 12h j'ai continuer mon deuxième ticket ensuite de 14h a 18h je n'ai pas pu finir due a un problème de serveur j'ai donc commencer a me renseigner sur les workflow pour le ticket du lendemain
+  J2 : de 9h a 12h et de 14h a 18h ja commencer et fini une tache qui consistai a crée un workflow
+  J3 : de 9h a 12h je me suis renseigner sur les ETL afin de pouvoir créer un outil d'import pour générer des contrats à partir d'un fichier Excel et d'y attacher le super workflow que j'ai créé hier
+  J4 : de 9h a 18h j'ai avancer sur le création de l'ETL
+  J5 : de 9h a 18h j'ai presque fini la création de l'ETL
+  s5:
+  J1 : de 9h a 12h ainsi que de 14h a 18h j'ai avancer sur mon rapport de stage
+  J2 : de 9h a 12h j'ai fini la création de l'ETL ainsi que tester, de 14h a 18h j'ai commencer le code pour crée une api
+  J3 : de 9h a 12h ainsi que de 14h a 18h j'ai terminer le code pour l'api
+  J4 : de 9h a 12h ainsi que de 14h a 18h j'ai crée l'api et adapter mon code pour avoir du xml en sortie 
+  J5 : de 9h a 12h et de 14h a 18h j'ai avancer sur mon rapport
+  s6:
+  J1 : de 9h a 12h et de 14h a 18h j'ai avancer sur mon rapport
+  J2 : de 9h a 12h et de 14h a 18h j'ai commencer une nouvelle tache qui consistai a mettre des règles de design sur l'application d'un client et avancer sur mon rapport
+  J3 : de 9h a 12h et de 14h a 18h j'ai continuer une nouvelle tache qui consistai a mettre des règles de design sur l'application d'un client et avancer sur mon rapport
+  J4 : de 9h a 12h et de 14h a 18h j'ai continuer une nouvelle tache qui consistai a mettre des règles de design sur l'application d'un client et avancer sur mon rapport
+  J5 : de 9h a 12h et de 14h a 18h j'ai continuer une nouvelle tache qui consistai a mettre des règles de design sur l'application d'un client et avancer sur mon rapport

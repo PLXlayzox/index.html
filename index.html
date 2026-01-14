@@ -55,14 +55,58 @@
                     <div class="stat-desc">Environ 30 collaborateurs répartis sur 5 bureaux en France, favorisant la proximité client</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">💼</div>
-                    <div class="stat-title">Portefeuille Clients</div>
-                    <div class="stat-desc">Vinci Energies, Asmodee, Arpavie, HDF Energy - Grands comptes et ETI</div>
-                </div>
-                <div class="stat-card">
                     <div class="stat-icon">🎯</div>
                     <div class="stat-title">Domaines d'Expertise</div>
                     <div class="stat-desc">Intégration Ivalua, développement sur mesure, support technique N2/N3</div>
+                </div>
+            </div>
+
+            <h3>Portefeuille Clients</h3>
+            <p style="margin-bottom: 20px;">Grands comptes et ETI - Cliquez sur les cartes pour découvrir les clients</p>
+            <div class="clients-grid">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="client-logo">VE</div>
+                            <div class="client-name">Vinci Energies</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="client-info">Leader français des services énergétiques et numériques</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="client-logo">AS</div>
+                            <div class="client-name">Asmodee</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="client-info">Leader mondial de l'édition de jeux de société</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="client-logo">AR</div>
+                            <div class="client-name">Arpavie</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="client-info">Association de services à la personne et d'accompagnement social</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="client-logo">HDF</div>
+                            <div class="client-name">HDF Energy</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="client-info">Pionnier de l'hydrogène vert et des solutions énergétiques décarbonées</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -433,14 +477,13 @@ app.post('/api/contracts/generate', upload.single('file'), async (req, res) => {
                     <div class="result-label">Orientation vers les métiers de développeur backend ou ingénieur DevOps</div>
                 </div>
                 <div class="result-card">
-                    <div class="stat-icon">🔐</div>
+                    <div class="stat-icon">🔒</div>
                     <div class="result-label">Spécialisation en sécurité des systèmes d'information</div>
                 </div>
             </div>
 
             <h3>Remerciements</h3>
-            <p>Je tiens à remercier chaleureusement <strong>Stéphane Verardo</strong>, mon tuteur professionnel, pour son accompagnement, sa patience et ses conseils avisés tout au long de ce stage. Je remercie également l'ensemble de l'équipe Cyrias pour leur accueil, leur bienveillance et le partage de leurs connaissances.</p>
-            
+            <p>Je tiens à remercier chaleureusement <strong>Stéphane Verardo</strong>, mon tuteur professionnel, pour son accomp
             <p>Cette expérience confirme définitivement mon orientation professionnelle vers les métiers de l'informatique et des réseaux, et me motive à poursuivre mes efforts pour devenir un professionnel compétent et polyvalent.</p>
         </section>
 
