@@ -1,0 +1,146 @@
+Cahier d’exercices
+
+TP Module 1
+Objectif : Réaliser un modèle MCD simple.
+
+Enoncé : A partir de l’analyse fonctionnelle suivante, réaliser le MCD.
+
+Gestionnaire d’un magasin de location d’articles, nous souhaitons mettre en place un système pour enregistrer les locations d’article de nos clients.
+
+Informations sur un client :
+
+Nom
+
+Prénom
+
+Adresse
+
+Code Postal
+
+Ville
+
+Informations sur un article :
+
+Référence
+
+Désignation
+
+Catégorie
+
+Gamme
+
+Un client peut louer plusieurs articles,
+
+Un article peut être loué par plusieurs clients,
+
+Il existe 6 catégories d’article,
+
+Il existe 3 gammes d’article.
+
+TP Module 3
+Objectif : Manipuler les requêtes de sélection.
+
+Prérequis : Jouer les scripts de création de la base de donnéesCreationBddLocations.sqlet d’insertion des donnéesInsertLocations.sql.
+
+Enoncé : Ecrire en T-SQL les requêtes demandées, comparer avec les résultats attendus.
+
+Lister les clients (nom, prénom, adresse, code postal, ville).
+
+Lister les clients domiciliés dans la région Île deFrance (75','77','78','91','92','93','94','95')
+
+Lister les fiches de location du client « Jean Dupond » par date de création décroissante.
+
+Lister les fiches de location en cours.
+
+Lister les articles ayant un « d » dans leur désignation.
+
+Lister les clients dont le nom commence par une des 10 premières lettres de l’alphabet.
+
+Lister les locations du mois de juin de cette année.
+
+Afficher les fiches de location, la colonne Etat doit afficher « Soldée » si Etat = SO,
+
+« En cours » si Etat = EC et « Rendu » si état = RE.
+
+Afficher les articles de la gamme EG ou de la catégorie FOP.
+
+Lister les articles de la gamme PR et de la catégorie FOA.
+
+Lister les articles sous le format suivant : (refart, désignation / codeCate / codeGamme).
+
+Lister les fiches de location créée il y a moins de 7 jours (Utiliser une fonction).
+
+Afficher le nombre total de clients.
+
+TP Module 4
+Objectif : Manipuler des requêtes plus complexes avec des jointures.
+
+Enoncé : Ecrire en T-SQL les requêtes demandées, comparer avec les résultats attendus.
+
+Afficher la liste des locations avec le nom et prénom des clients.
+
+Afficher les locations de chaque article, y compris ceux n’ayant jamais été loués (dans ce cas afficher « Pas de location connue »).
+
+Afficher les locations des articles de la gamme PR et catégorie FOA.
+
+Afficher les articles loués par les clients des départements d’Île de France.
+
+Afficher la liste des locations (ligne fiche) jusqu’à J-7 avec le nom et prénom des clients, et ajouter ceux n’ayant jamais réalisés de location (dans ce cas afficher « Pas de location connue »).
+
+Lister les clients n’ayant jamais loué d’articles de la gamme PR.
+
+TP Module 5
+Objectif : Manipuler des requêtes avec des regroupements et calculs d’agrégats.
+
+Enoncé : Ecrire en T-SQL les requêtes demandées, comparer avec les résultats attendus.
+
+Afficher par ordre décroissant le nombre de clientpardépartement.
+
+Afficher les clients n’ayant loué qu’une seule fois du matériel. (fiches)
+
+Afficher par ordre croissant les 10 articles les plus loués.
+
+Afficher le nombre de locations par catégories.
+
+Déterminer le panier moyen d’une location.
+
+Afficher les clients ayant loué plus de deux articles dans la même fiche.
+
+Afficher la liste des clients ayant une fiche non soldée.
+
+Afficher les articles étant en cours de location.
+
+TP Module 6
+Objectif : Manipuler des requêtes d’insertion / modification / suppression des données
+
+Prérequis : Jouer le script de modification de la base de donnéesModifBDDLocation.sql
+
+Enoncé : Ecrire en T-SQL les requêtes demandées, comparer avec les résultats attendus.
+
+Ajouter un nouveau client.
+
+Mettre à jour les autres clients pour définir l’idClientParain avec l’id du client généré en 1.
+
+Ecrire un script de suppression pour les données du client 14.
+
+Créer une vue affichant les désignations et date de départ des articles en cours de location depuis plus de 7 jours.
+
+TP Module 7
+Objectif : Ecrire une procédure stockée
+
+Enoncé : Ecrire en T-SQL une procédure stockée réalisant l’opération demandée :
+
+Création d’une fiche de location pour le client demandé.
+
+Mettre à jour l’état d’une fiche de location lorsque les articles sont rendus.
+
+Mettre à jour l’état d’une fiche de location lorsque la fiche est payée.
+
+Rendre un article, si tout les articles de la fiche sont rendus, alors l’état de la fiche passe à rendu
+
+TP BONUS
+1. Afficher pour chaque fiches la différence en jour entre la date de création de la fiche et la date de création de la première fiche.
+
+2. Ajouter une colonne date de création dans la table client
+
+3. Mettre à jour la colonne avec une date générée aléatoirement (fonctions CONCAT, ROUND et RAND nécessaires).
