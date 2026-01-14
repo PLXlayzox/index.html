@@ -641,10 +641,187 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
+/* Sections pliables */
+.collapsible-section {
+    margin: 30px 0;
+}
+
+.collapsible-btn {
+    width: 100%;
+    padding: 18px 25px;
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    color: #888;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.collapsible-btn:hover {
+    background: #111;
+    border-color: #222;
+    color: #bbb;
+}
+
+.collapsible-btn .arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    color: #555;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #0d0d0d;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid #1a1a1a;
+    border-top: none;
+}
+
+.collapsible-content.open {
+    max-height: 2000px;
+    padding: 25px;
+    margin-top: -6px;
+}
+
+.document-viewer {
+    background: #000;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.document-text {
+    color: #888;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+.loading {
+    color: #555;
+    text-align: center;
+    padding: 40px;
+    font-style: italic;
+}
+
+/* Galerie d'images */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: #333;
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Modal pour images */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #4a9eff;
+}
+
+/* Grid SQL pour toutes les requêtes */
+.sql-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.sql-item {
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #1a1a1a;
+}
+
+.sql-header {
+    background: #0d0d0d;
+    padding: 12px 18px;
+    color: #888;
+    font-weight: 600;
+    border-bottom: 1px solid #1a1a1a;
+    font-family: 'Courier New', monospace;
+}
+
+.sql-item .code-block {
+    padding: 20px;
+    margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 968px) {
     .two-column {
         grid-template-columns: 1fr;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
 
@@ -672,5 +849,9 @@ body::-webkit-scrollbar {
     
     .carousel-content { 
         height: 400px; 
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }

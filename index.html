@@ -121,6 +121,18 @@
                     <p>Approche agile, cycles courts de développement, tests rigoureux en environnement sandbox avant déploiement en production, et accompagnement continu des clients.</p>
                 </div>
             </div>
+
+            <!-- Section pliable : Informations détaillées -->
+            <div class="collapsible-section">
+                <button class="collapsible-btn" onclick="toggleCollapsible('info-entreprise')">
+                    <span class="arrow">▶</span> Informations complémentaires sur l'entreprise
+                </button>
+                <div id="info-entreprise" class="collapsible-content">
+                    <div class="document-viewer" id="info-voc-content">
+                        <div class="loading">Chargement...</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Section 2: Contexte du stage -->
@@ -150,6 +162,18 @@
             </div>
 
             <p class="context-text">L'environnement de travail m'a permis de mettre en application les compétences acquises en BTS CIEL tout en découvrant les exigences du monde professionnel : rigueur, documentation, travail en équipe et respect des délais.</p>
+
+            <!-- Journal de bord -->
+            <div class="collapsible-section">
+                <button class="collapsible-btn" onclick="toggleCollapsible('journal-bord')">
+                    <span class="arrow">▶</span> Consulter mon journal de bord
+                </button>
+                <div id="journal-bord" class="collapsible-content">
+                    <div class="document-viewer" id="journal-content">
+                        <div class="loading">Chargement...</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Section 3: Missions -->
@@ -165,6 +189,12 @@
                 <li class="mission-item"><strong>Bonnes pratiques :</strong> Formation aux standards de sécurité, conventions de nommage, gestion de versions et documentation technique</li>
                 <li class="mission-item"><strong>Analyse comparative :</strong> Étude de cas réels en production pour comprendre les implications métiers des solutions techniques</li>
             </ul>
+
+            <!-- Galerie d'images -->
+            <h3>Aperçu de l'Environnement de Travail</h3>
+            <div class="image-gallery" id="image-gallery">
+                <!-- Images chargées dynamiquement -->
+            </div>
 
             <h3>2. Développement de Solutions Techniques</h3>
             <ul class="mission-list">
@@ -218,134 +248,34 @@
                 </div>
             </div>
 
-            <h3>Exemples de Code Développé</h3>
+            <h3>Exemples de Code Développé - Requêtes SQL</h3>
             <div class="code-carousel">
                 <div class="carousel-header">
                     <div class="dot red"></div>
                     <div class="dot yellow"></div>
                     <div class="dot green"></div>
-                    <span class="carousel-label">technical_implementation.sql / api.js / output.xml</span>
+                    <span class="carousel-label" id="carousel-label">Requêtes SQL Principales</span>
                 </div>
-                <div class="carousel-content">
+                <div class="carousel-content" id="sql-carousel">
+                    <!-- Slides chargées dynamiquement depuis les fichiers SQL -->
                     <div class="carousel-slide active">
-                        <pre class="code-block"><span class="code-comment">-- Extraction et validation des données contrats
--- Vérification des doublons et des champs obligatoires</span>
-
-SELECT 
-    c.contract_id,
-    c.contract_name,
-    s.supplier_name,
-    s.supplier_code,
-    c.start_date,
-    c.end_date,
-    c.total_amount,
-    c.currency,
-    DATEDIFF(c.end_date, c.start_date) AS duration_days,
-    CASE 
-        WHEN c.total_amount > 100000 THEN 'HIGH_VALUE'
-        WHEN c.total_amount > 50000 THEN 'MEDIUM_VALUE'
-        ELSE 'STANDARD'
-    END AS contract_category
-FROM contracts c
-INNER JOIN suppliers s ON c.supplier_id = s.supplier_id
-WHERE c.status = 'pending_import'
-    AND c.start_date >= CURRENT_DATE
-    AND c.end_date > c.start_date
-    AND NOT EXISTS (
-        SELECT 1 FROM contracts c2 
-        WHERE c2.contract_name = c.contract_name 
-        AND c2.status = 'active'
-    )
-ORDER BY c.total_amount DESC;</pre>
-                    </div>
-                    <div class="carousel-slide">
-                        <pre class="code-block"><span class="code-comment">// API REST - Endpoint de génération automatique de contrats
-// Gestion de l'upload, validation et déclenchement du workflow</span>
-
-const express = require('express');
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-
-app.post('/api/contracts/generate', upload.single('file'), async (req, res) => {
-    try {
-        // Extraction des données depuis le fichier Excel
-        const data = await extractExcelData(req.file.path);
-        
-        // Validation des données selon les règles métier
-        const validation = validateContractData(data);
-        if (!validation.isValid) {
-            return res.status(400).json({
-                success: false,
-                errors: validation.errors
-            });
-        }
-        
-        // Transformation au format XML pour Ivalua
-        const xmlOutput = generateXML(validation.data);
-        
-        // Déclenchement du workflow de création
-        const workflowResult = await workflow.trigger('contract_creation', {
-            data: xmlOutput,
-            userId: req.user.id,
-            timestamp: new Date().toISOString()
-        });
-        
-        res.status(200).json({
-            success: true,
-            message: 'Contract generation initiated',
-            workflowId: workflowResult.id,
-            contractsCount: validation.data.length
-        });
-    } catch (error) {
-        console.error('Contract generation error:', error);
-        res.status(500).json({ 
-            success: false,
-            error: error.message 
-        });
-    }
-});</pre>
-                    </div>
-                    <div class="carousel-slide">
-                        <pre class="code-block"><span class="code-comment">&lt;!-- Sortie XML pour intégration système
-     Format standardisé pour communication inter-applicative --&gt;</span>
-
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;ContractImport timestamp="2025-06-15T10:30:00Z"&gt;
-    &lt;Metadata&gt;
-        &lt;Source&gt;ETL_Import&lt;/Source&gt;
-        &lt;BatchId&gt;BATCH-2025-001&lt;/BatchId&gt;
-        &lt;RecordCount&gt;25&lt;/RecordCount&gt;
-    &lt;/Metadata&gt;
-    
-    &lt;Contracts&gt;
-        &lt;Contract id="CTR-2025-001" status="validated"&gt;
-            &lt;General&gt;
-                &lt;Name&gt;Contrat Maintenance IT 2025&lt;/Name&gt;
-                &lt;Type&gt;SERVICE&lt;/Type&gt;
-                &lt;Category&gt;HIGH_VALUE&lt;/Category&gt;
-            &lt;/General&gt;
-            &lt;Supplier&gt;
-                &lt;Code&gt;SUP-VE-001&lt;/Code&gt;
-                &lt;Name&gt;Vinci Energies&lt;/Name&gt;
-            &lt;/Supplier&gt;
-            &lt;Financial&gt;
-                &lt;Amount currency="EUR"&gt;150000&lt;/Amount&gt;
-                &lt;PaymentTerms&gt;Net 30&lt;/PaymentTerms&gt;
-            &lt;/Financial&gt;
-            &lt;Dates&gt;
-                &lt;StartDate&gt;2025-06-01&lt;/StartDate&gt;
-                &lt;EndDate&gt;2026-05-31&lt;/EndDate&gt;
-                &lt;RenewalOption&gt;true&lt;/RenewalOption&gt;
-            &lt;/Dates&gt;
-        &lt;/Contract&gt;
-    &lt;/Contracts&gt;
-&lt;/ContractImport&gt;</pre>
+                        <div class="loading">Chargement des exemples SQL...</div>
                     </div>
                 </div>
-                <div class="carousel-nav">
-                    <div class="nav-dot active" data-slide="0"></div>
-                    <div class="nav-dot" data-slide="1"></div>
-                    <div class="nav-dot" data-slide="2"></div>
+                <div class="carousel-nav" id="carousel-nav">
+                    <!-- Dots générés dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Requêtes SQL supplémentaires -->
+            <div class="collapsible-section">
+                <button class="collapsible-btn" onclick="toggleCollapsible('more-sql')">
+                    <span class="arrow">▶</span> Voir toutes les requêtes SQL développées
+                </button>
+                <div id="more-sql" class="collapsible-content">
+                    <div id="all-sql-queries" class="sql-grid">
+                        <!-- Toutes les requêtes SQL chargées ici -->
+                    </div>
                 </div>
             </div>
 
@@ -407,6 +337,18 @@ app.post('/api/contracts/generate', upload.single('file'), async (req, res) => {
                     <div class="skill-item">Sécurité : application des bonnes pratiques (injection SQL, XSS, authentification)</div>
                     <div class="skill-item">Veille technologique : lecture de documentation et recherche de solutions</div>
                     <div class="skill-item">Gestion des erreurs : anticipation et traitement des cas limites</div>
+                </div>
+            </div>
+
+            <!-- Exercices pratiques -->
+            <div class="collapsible-section">
+                <button class="collapsible-btn" onclick="toggleCollapsible('exercices')">
+                    <span class="arrow">▶</span> Exercices et cas pratiques réalisés
+                </button>
+                <div id="exercices" class="collapsible-content">
+                    <div class="document-viewer" id="exercice-content">
+                        <div class="loading">Chargement...</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -483,7 +425,8 @@ app.post('/api/contracts/generate', upload.single('file'), async (req, res) => {
             </div>
 
             <h3>Remerciements</h3>
-            <p>Je tiens à remercier chaleureusement <strong>Stéphane Verardo</strong>, mon tuteur professionnel, pour son accomp
+            <p>Je tiens à remercier chaleureusement <strong>Stéphane Verardo</strong>, mon tuteur professionnel, pour son accompagnement, sa patience et ses conseils avisés tout au long de ce stage. Je remercie également l'ensemble de l'équipe Cyrias pour leur accueil, leur bienveillance et le partage de leurs connaissances.</p>
+            
             <p>Cette expérience confirme définitivement mon orientation professionnelle vers les métiers de l'informatique et des réseaux, et me motive à poursuivre mes efforts pour devenir un professionnel compétent et polyvalent.</p>
         </section>
 
@@ -495,6 +438,6 @@ app.post('/api/contracts/generate', upload.single('file'), async (req, res) => {
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scrypt.js"></script>
 </body>
 </html>
