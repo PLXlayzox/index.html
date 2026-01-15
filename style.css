@@ -12,15 +12,8 @@ body {
     overflow-x: hidden;
     font-size: 18px;
     padding-left: 280px;
-    padding-right: 80px;
+    padding-right: 120px;
     transition: padding 0.3s ease;
-}
-
-@media (max-width: 1200px) {
-    body {
-        padding-left: 0;
-        padding-right: 0;
-    }
 }
 
 /* Scrollbar personnalisée pour le body */
@@ -129,129 +122,94 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 500;
 }
 
-@media (max-width: 1200px) {
-    .side-nav {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-    }
-    
-    .side-nav.mobile-open {
-        transform: translateX(0);
-    }
-}
-
-/* Timer Panel droit */
-.timer-panel {
+/* Barre de progression verticale */
+.progress-bar-container {
     position: fixed;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
-}
-
-.timer-toggle {
-    width: 50px;
-    height: 50px;
-    background: #0d0d0d;
-    border: 1px solid #1a1a1a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.5em;
-    margin-left: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.timer-toggle:hover {
-    background: #1a1a1a;
-    border-color: #4a9eff;
-    transform: scale(1.1);
-}
-
-.timer-content {
-    position: absolute;
-    right: 70px;
-    top: 50%;
-    transform: translateY(-50%);
     background: #0a0a0a;
     border: 1px solid #1a1a1a;
-    border-radius: 8px;
-    padding: 25px;
-    min-width: 220px;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 20px 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-.timer-content.open {
-    opacity: 1;
-    pointer-events: all;
-    right: 80px;
+.progress-info {
+    text-align: center;
+    width: 100%;
 }
 
-.timer-header {
-    font-size: 0.9em;
+.progress-label {
+    font-size: 0.75em;
     color: #555;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
-.timer-display {
-    font-size: 3em;
+.progress-time {
+    font-size: 1.8em;
     font-weight: 700;
     color: #4a9eff;
-    text-align: center;
     font-family: 'Courier New', monospace;
-    margin-bottom: 15px;
 }
 
-.timer-progress {
-    width: 100%;
-    height: 6px;
+.vertical-progress-bar {
+    width: 40px;
+    height: 300px;
     background: #0d0d0d;
-    border-radius: 3px;
+    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 20px;
+    border: 2px solid #1a1a1a;
+    position: relative;
 }
 
-.timer-progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #4a9eff, #2d7acc);
+.vertical-progress-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    transition: width 0.3s ease;
+    height: 100%;
+    background: linear-gradient(180deg, #4a9eff, #2d7acc);
+    transition: height 0.3s ease, background 0.3s ease;
+    border-radius: 18px;
 }
 
-.timer-controls {
+.progress-controls {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
 }
 
-.timer-btn {
-    padding: 10px 15px;
+.progress-btn {
+    width: 100%;
+    padding: 10px;
     background: #0d0d0d;
     color: #888;
     border: 1px solid #1a1a1a;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.95em;
+    font-size: 1.2em;
     font-family: inherit;
 }
 
-.timer-btn:hover {
+.progress-btn:hover {
     background: #1a1a1a;
-    color: #bbb;
+    color: #fff;
     border-color: #4a9eff;
+    transform: scale(1.05);
 }
 
-.timer-btn:active {
+.progress-btn:active {
     transform: scale(0.95);
 }
 
@@ -523,7 +481,7 @@ strong {
     border: 1px solid #222;
 }
 
-/* Code Carousel - AGRANDI */
+/* Code Carousel */
 .code-carousel {
     position: relative;
     margin: 25px 0;
@@ -843,21 +801,6 @@ footer h2 {
     background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
     border: 2px solid #333;
     transform: rotateY(180deg);
-}
-
-.client-logo {
-    width: 100px;
-    height: 100px;
-    background: #222;
-    border: 3px solid #333;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #666;
-    margin-bottom: 20px;
 }
 
 .client-logo-img {
@@ -1241,20 +1184,44 @@ footer h2 {
 
 /* Responsive */
 @media (max-width: 1200px) {
-    .timer-panel {
+    body {
+        padding-left: 0;
+        padding-right: 100px;
+    }
+    
+    .side-nav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .side-nav.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .progress-bar-container {
         right: 10px;
+        padding: 15px 10px;
     }
     
-    .timer-content {
-        right: 60px;
+    .vertical-progress-bar {
+        width: 30px;
+        height: 250px;
     }
     
-    .timer-content.open {
-        right: 70px;
+    .progress-time {
+        font-size: 1.5em;
     }
 }
 
 @media (max-width: 968px) {
+    body {
+        padding-right: 0;
+    }
+    
+    .progress-bar-container {
+        display: none;
+    }
+    
     .two-column {
         grid-template-columns: 1fr;
     }
@@ -1294,7 +1261,7 @@ footer h2 {
     
     .stats-grid, 
     .skills-grid { 
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
     
     .carousel-content { 

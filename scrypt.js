@@ -1,16 +1,11 @@
 // ===========================================
-// TIMER FUNCTIONALITY
+// TIMER FUNCTIONALITY - BARRE VERTICALE
 // ===========================================
 
 let timerInterval = null;
 let timeRemaining = 15 * 60; // 15 minutes en secondes
 const totalTime = 15 * 60;
 let isTimerRunning = false;
-
-function toggleTimer() {
-    const content = document.getElementById('timerContent');
-    content.classList.toggle('open');
-}
 
 function updateTimerDisplay() {
     const minutes = Math.floor(timeRemaining / 60);
@@ -20,15 +15,15 @@ function updateTimerDisplay() {
     
     const progressBar = document.getElementById('timerProgressBar');
     const progress = (timeRemaining / totalTime) * 100;
-    progressBar.style.width = progress + '%';
+    progressBar.style.height = progress + '%';
     
     // Changer la couleur selon le temps restant
     if (progress < 25) {
-        progressBar.style.background = 'linear-gradient(90deg, #ff4a4a, #cc2d2d)';
+        progressBar.style.background = 'linear-gradient(180deg, #ff4a4a, #cc2d2d)';
     } else if (progress < 50) {
-        progressBar.style.background = 'linear-gradient(90deg, #ffaa4a, #cc7a2d)';
+        progressBar.style.background = 'linear-gradient(180deg, #ffaa4a, #cc7a2d)';
     } else {
-        progressBar.style.background = 'linear-gradient(90deg, #4a9eff, #2d7acc)';
+        progressBar.style.background = 'linear-gradient(180deg, #4a9eff, #2d7acc)';
     }
 }
 
@@ -45,6 +40,9 @@ function startTimer() {
             updateTimerDisplay();
         } else {
             pauseTimer();
+            // Animation de fin
+            const progressBar = document.getElementById('timerProgressBar');
+            progressBar.style.background = 'linear-gradient(180deg, #ff4a4a, #cc2d2d)';
             alert('⏰ Temps écoulé ! Votre présentation de 15 minutes est terminée.');
         }
     }, 1000);
@@ -429,15 +427,8 @@ const observer = new IntersectionObserver((entries) => {
 // ===========================================
 
 document.addEventListener('keydown', (e) => {
-    // T = Toggle Timer
-    if (e.key === 't' || e.key === 'T') {
-        if (!e.target.matches('input, textarea')) {
-            toggleTimer();
-        }
-    }
-    
-    // Espace = Démarrer/Pause Timer (si ouvert)
-    if (e.key === ' ' && document.getElementById('timerContent').classList.contains('open')) {
+    // Espace = Démarrer/Pause Timer
+    if (e.key === ' ') {
         if (!e.target.matches('input, textarea, button')) {
             e.preventDefault();
             if (isTimerRunning) {
@@ -445,6 +436,13 @@ document.addEventListener('keydown', (e) => {
             } else {
                 startTimer();
             }
+        }
+    }
+    
+    // R = Reset Timer
+    if (e.key === 'r' || e.key === 'R') {
+        if (!e.target.matches('input, textarea')) {
+            resetTimer();
         }
     }
 });
@@ -475,7 +473,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     
     console.log('✅ Contenu chargé avec succès !');
     console.log('💡 Raccourcis clavier :');
-    console.log('  - T : Ouvrir/fermer le timer');
-    console.log('  - Espace : Démarrer/Pause timer (quand ouvert)');
+    console.log('  - Espace : Démarrer/Pause timer');
+    console.log('  - R : Reset timer');
     console.log('  - ← → : Naviguer dans le carousel SQL');
 });

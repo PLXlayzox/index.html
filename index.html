@@ -40,29 +40,26 @@
         </a>
     </nav>
 
-    <!-- Timer Panel droit -->
-    <div class="timer-panel" id="timerPanel">
-        <div class="timer-toggle" onclick="toggleTimer()">
-            <span id="timerIcon">⏱️</span>
+    <!-- Barre de progression verticale -->
+    <div class="progress-bar-container">
+        <div class="progress-info">
+            <div class="progress-label">Temps</div>
+            <div class="progress-time" id="timerDisplay">15:00</div>
         </div>
-        <div class="timer-content" id="timerContent">
-            <div class="timer-header">Chronomètre</div>
-            <div class="timer-display" id="timerDisplay">15:00</div>
-            <div class="timer-progress">
-                <div class="timer-progress-bar" id="timerProgressBar"></div>
-            </div>
-            <div class="timer-controls">
-                <button class="timer-btn" id="startBtn" onclick="startTimer()">▶️ Démarrer</button>
-                <button class="timer-btn" id="pauseBtn" onclick="pauseTimer()" style="display:none;">⏸️ Pause</button>
-                <button class="timer-btn" id="resetBtn" onclick="resetTimer()">🔄 Reset</button>
-            </div>
+        <div class="vertical-progress-bar">
+            <div class="vertical-progress-fill" id="timerProgressBar"></div>
+        </div>
+        <div class="progress-controls">
+            <button class="progress-btn" id="startBtn" onclick="startTimer()" title="Démarrer">▶</button>
+            <button class="progress-btn" id="pauseBtn" onclick="pauseTimer()" style="display:none;" title="Pause">⏸</button>
+            <button class="progress-btn" id="resetBtn" onclick="resetTimer()" title="Réinitialiser">🔄</button>
         </div>
     </div>
 
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Rapport de Stage BTS CIEL</h1>
+            <h1>Soutenance de Stage BTS CIEL</h1>
             <p class="subtitle">Transformation Digitale & Développement de Solutions Cloud</p>
             <div class="info-grid">
                 <div class="info-item">
@@ -508,7 +505,7 @@
                     <div class="result-label">Orientation vers les métiers de développeur backend ou ingénieur DevOps</div>
                 </div>
                 <div class="result-card">
-                    <div class="stat-icon">🔐</div>
+                    <div class="stat-icon">🔒</div>
                     <div class="result-label">Spécialisation en sécurité des systèmes d'information</div>
                 </div>
             </div>
@@ -523,7 +520,7 @@
         <footer>
             <h2>Merci de votre attention</h2>
             <p class="contact-info">Questions ? Retours ? N'hésitez pas !</p>
-            <a href="#" class="btn">📄 Télécharger le Rapport Complet (PDF)</a>
+            <a href="ressources/rapport_de_stage_billy.pdf" download="Rapport_Stage_Billy_Lenfant_BTS_CIEL.pdf" class="btn">📄 Télécharger le Rapport de Stage (PDF)</a>
         </footer>
     </div>
 
